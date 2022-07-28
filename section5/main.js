@@ -35,4 +35,41 @@ function init() {
     // 배열의 값을 하나 추가해 보면 반복 렌더링이 변경된다.
     app2.list.push('오렌지');
     app2.list.push('망고');
+
+
+    var app3 = new Vue({
+        el:'#app3',
+        data:{},
+        methods: {
+            handleClick: function(event) {
+                console.log(event.target);
+                event.target.textContent ="clicked";
+                event.target.classList.add('clicked');
+            }, 
+        },
+    });
+
+    var app4 = new Vue({
+        el: '#app4',
+        data: {
+            message: '초기 메시지',
+        }
+    });
+
+    var app5 = new Vue({
+        el: '#app5',
+        data: {
+            show: true,
+        }
+    });
+
+    // app5.show = false;
+
+    var app6 = new Vue({
+        el: '#app6',
+        data: {
+            show:true,
+        }
+    });
+
 } // END init()
