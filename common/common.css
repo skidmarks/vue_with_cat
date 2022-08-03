@@ -1,3 +1,4 @@
 body{background-color:#efefef;}
 .desc{border:1px solid blueviolet;}
+.desc:not(.desc:nth-of-type(1)){margin-top:50px;}
 .desc h2{border-bottom:1px solid blueviolet}

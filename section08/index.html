@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 텍스트와 속성 데이터 바인딩</title>
+    <link rel="stylesheet" href="../common/common.css">
+    <style>
+        [id ^= app]{border:1px solid red;margin-top:20px;box-sizing:border-box;padding:10px;}
+    </style>
+ 
+</head>
+<body>
+
+    <h1>텍스트와 속성 데이터 바인딩</h1>
+
+    <div class="desc">
+        <h2>텍스트와 데이터 바인딩</h2>
+        <p>Mustache 기법</p>
+    </div>
+
+    <div id="app1">
+        <p>Hello {{ message }}</p>
+    </div>
+
+    <div id="app2">
+        <p>{{message.value}}</p>
+        <p>{{message.value.length}}</p>
+        <p>{{list[2]}}</p>
+        <p>{{list[num]}}</p>
+    </div>
+
+    <h2>v-bind 장식자</h2>
+    <p>.prop 속성 대신에 DOM 속성과 직접 바인당한다</p>
+
+    <div id="app3">
+        <!-- DOM의 textContent 속성에 바인딩하기 -->
+        <div v-bind:text-content.prop="message"></div>
+
+        <!-- DOM의 scrollTop 속성에 바인딩하기 -->
+        <div v-bind:scroll-top.prop="scroll">...</div>
+    </div>
+
+
+    <div id="app4">
+        <p>{{count}}번 클릭했습니다.</p>
+
+        <button v-on:click="increment">카운트 하기</button>
+        <button v-on:click="decrement">차감 하기</button>
+    </div>
+
+    <div class="desc">
+        <h2>클래스와 스타일 데이터 바인딩</h2>
+    </div>      
+    <div id="app5">
+        <p v-bind:class="{child:isChild, 'is-active':isActive}">TEXT</p>
+        <p v-bind:style="{color:textColor, backgroundColor:bgColor}">TEXT</p>
+    </div>
+
+    <div class="desc">
+        <h2>여러 개의 속성 데이터 바인딩하기</h2>
+        <p>v-bind 디렉티브의 매개변수 부분을 생략하고 객체를 다음과 같이 전달하면 한 번에 바인딩할 수 있으며, 템플릿의 가독성도 굉장히 향상된다.</p>
+        <p>매개변수로 전달된 v-bind와 함께 특정 요소함을 따로 지정할 수도 있다.</p>
+    </div>
+    <div id="app6" style="display:flex;justify-content: space-around;">
+        <p><img v-bind:src="item.src" v-bind:alt="item.alt" v-bind:width="item.width" v-bind:height="item.height" /></p>
+        <p><img v-bind="item" /></p>
+        <p><img v-bind="item" v-bind:id="'thumb-' + item.id" /></p>
+    </div>
+
+    <div class="desc">
+        <h2>SVG 데이터 바인딩하기</h2>
+        <p>입력 양식 슬라이더의 숫자와 SVG를 동기화해서, 원의 반지름을 변화시킨다.</p>
+    </div>
+    <div id="app7" style="display:flex;justify-content: space-around;">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
+        </svg>
+        <input type="range" name="" min="0" max="100" v-model="radius" id="" />
+    </div>
+
+
+    <!-- vue installed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

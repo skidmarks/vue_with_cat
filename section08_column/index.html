@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 COLUMN this가 지금 무엇을 나타내는가?</title>
+    <link rel="stylesheet" href="../common/common.css">
+    <style>
+        [id ^= app]{border:1px solid red;margin-top:20px;box-sizing:border-box;padding:10px;}
+    </style>
+ 
+</head>
+<body>
+
+    <h1>this가 지금 무엇을 나타내는가?</h1>
+
+    <h2></h2>
+
+    <div class="desc">
+        <h2>잘못된 예</h2>
+    </div>
+
+
+    <div id="app1">
+        <p>{{count}}</p>
+        <button v-on:click="increment">++ 증가하기</button>
+        <button v-on:click="decrement">-- 감소하기</button>
+    </div>
+
+    <div class="desc">
+        <h2>올바른 예</h2>
+    </div>   
+
+    <div id="app2">
+        <p>{{count}}</p>
+        <button v-on:click="increment">++ 증가하기</button>
+        <button v-on:click="decrement">-- 감소하기</button>
+    </div>
+
+    <!-- vue installed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
